@@ -1,0 +1,58 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.9
+    palette = "#2754a1:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#223994:#cb1616:#20bdd6:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_type = transparent
+    background_image = None
+    foreground_color = "#ffffff"
+  [[datagator]]
+    background_image = None
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[datagator]]
+    [[[child0]]]
+      position = 1252:628
+      type = Window
+      order = 0
+      parent = ""
+      size = 1296, 804
+    [[[child1]]]
+      position = 648
+      type = HPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 402
+      type = VPaned
+      order = 0
+      parent = child1
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+      title = Server
+      command = '''bash --rcfile <(cat ${HOME}/.bashrc; echo 'export PROMPT_COMMAND="cd Projects/datagator-frontend; workon datagator; dg-start; unset PROMPT_COMMAND"') -i'''
+    [[[terminal5]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+      title = GIT
+      command = '''bash --rcfile <(cat ${HOME}/.bashrc; echo 'export PROMPT_COMMAND="cd Projects/datagator-frontend; git status; unset PROMPT_COMMAND"') -i'''
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
+      title = curl / node
+[plugins]
