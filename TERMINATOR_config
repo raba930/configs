@@ -1,58 +1,75 @@
 [global_config]
+  title_transmit_bg_color = "#1bad13"
   suppress_multiple_term_dialog = True
+  handle_size = 3
+  title_inactive_bg_color = "#be484e"
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.9
-    palette = "#2754a1:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#223994:#cb1616:#20bdd6:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    palette = "#000000:#dc0202:#1ff100:#d1fd00:#1e90ff:#cd00cd:#00cdcd:#ffffff:#a8fac2:#ff0d1e:#00ff00:#ffff00:#4682b4:#ff00ff:#00ffff:#ffffff"
+    background_darkness = 0.85
+    scrollback_lines = 521
     background_type = transparent
     background_image = None
-    foreground_color = "#ffffff"
-  [[datagator]]
-    background_image = None
+    foreground_color = "#d7e3e5"
+    background_color = "#000507"
+    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
     [[[window0]]]
       type = Window
       parent = ""
-  [[datagator]]
+  [[dg]]
     [[[child0]]]
-      position = 1252:628
+      position = 0:0
       type = Window
       order = 0
       parent = ""
-      size = 1296, 804
+      size = 1912, 971
     [[[child1]]]
-      position = 648
+      position = 959
       type = HPaned
       order = 0
       parent = child0
     [[[child2]]]
-      position = 402
+      position = 360
       type = VPaned
       order = 0
       parent = child1
+    [[[child4]]]
+      position = 317
+      type = VPaned
+      order = 1
+      parent = child2
     [[[terminal3]]]
       profile = default
       type = Terminal
       order = 0
       parent = child2
-      title = Server
       command = '''bash --rcfile <(cat ${HOME}/.bashrc; echo 'export PROMPT_COMMAND="cd Projects/datagator-frontend; workon datagator; dg-start; unset PROMPT_COMMAND"') -i'''
+      title = Server
     [[[terminal5]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child4
+      command = '''bash --rcfile <(cat ${HOME}/.bashrc; echo 'export PROMPT_COMMAND="cd Projects/datagator-frontend/bin; java -jar selenium-server-standalone-2.53.1.jar ; unset PROMPT_COMMAND"') -i'''
+      title = selenium server
+    [[[terminal7]]]
       profile = default
       type = Terminal
       order = 1
       parent = child1
-      title = GIT
       command = '''bash --rcfile <(cat ${HOME}/.bashrc; echo 'export PROMPT_COMMAND="cd Projects/datagator-frontend; git status; unset PROMPT_COMMAND"') -i'''
-    [[[terminal4]]]
+      title = Git
+    [[[terminal6]]]
       profile = default
       type = Terminal
       order = 1
-      parent = child2
+      parent = child4
       title = curl / node
 [plugins]
