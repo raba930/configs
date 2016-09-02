@@ -1,4 +1,4 @@
-alias dg-start='STATIC_URL=/static/ JSDEBUG=true python manage.py runserver'
+alias dg-start='STATIC_URL=/static/ API_PREFIX=https://dev.datagator.org/api/ JSDEBUG=true python manage.py runserver'
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
